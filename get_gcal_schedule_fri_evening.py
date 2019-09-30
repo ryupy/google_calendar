@@ -63,7 +63,7 @@ def get_schedule():
 
     # now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     tommorow = datetime.datetime.now() + datetime.timedelta(days = 1)
-    day_after_tommorow = datetime.datetime.now() + datetime.timedelta(days = 2)
+    day_after_tommorow = datetime.datetime.now() + datetime.timedelta(days = 3)
     tommorow_start = str(tommorow.year) + '-' + str(tommorow.month).zfill(2) + '-' + str(tommorow.day).zfill(2) + 'T00:00:00+09:00'
     tommorow_end = str(day_after_tommorow.year) + '-' + str(day_after_tommorow.month).zfill(2) + '-' + str(day_after_tommorow.day).zfill(2) + 'T23:59:59+09:00'
     
@@ -75,7 +75,7 @@ def get_schedule():
     event_text = '。十八時です。一週間お疲れ様でした。今週末の餌当番は、'
 
     if not events:
-        event_text += 'ありません。'
+        event_text += 'ありません。来週もがんばりましょう！'
         print(event_text)
         return event_text
 
@@ -85,9 +85,9 @@ def get_schedule():
 	    # event_text += str(start[11:13])+'時'+str(start[14:16])+'分に'
             event_text += event['summary'].encode('utf_8')
 	    if event == events[-1]:
-		event_text += '。です。'
+		event_text += '。さん。です。来週もがんばりましょう！'
 	    else:
-		event_text += '。と、'
+		event_text += '。さん。と、'
 
         print(event_text)
         return event_text

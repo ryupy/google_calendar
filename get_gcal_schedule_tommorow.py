@@ -74,17 +74,17 @@ def get_schedule():
     event_text = '。お疲れ様です。十八時です。明日の研究室行事は、'
 
     if not events:
-        event_text += 'ありません。やったぜ！'
+        event_text += 'ありません。明日もがんばりましょう！'
         print(event_text)
         return event_text
 
     else:
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
-	    event_text += str(start[11:13])+'時'+str(start[14:16])+'分に'
+	    event_text += str(start[11:13])+'時'+str(start[14:16])+'分、から、'
             event_text += event['summary'].encode('utf_8')
 	    if event == events[-1]:
-		event_text += '。です。'
+		event_text += '。です。明日もがんばりましょう！'
 	    else:
 		event_text += '。と、'
 
